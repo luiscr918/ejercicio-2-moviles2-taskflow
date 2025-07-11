@@ -5,7 +5,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { LoginScreen } from "../screens/LoginScreen";
 import { RegistroScreen } from "../screens/RegistroScreen";
 import { TareasScreen } from "../screens/TareasScreen";
-import { CompletarScreen } from "../screens/CompletarScreen";
 import { CrearScreen } from "../screens/CrearScreen";
 import { EliminarScreen } from "../screens/EliminarScreen";
 import { EditarScreen } from "../screens/EditarScreen";
@@ -53,7 +52,6 @@ const MyTop = () => {
   return (
     <TopTab.Navigator>
       <TopTab.Screen name="Crear" component={CrearScreen} />
-      <TopTab.Screen name="Completar" component={CompletarScreen} />
       <TopTab.Screen name="Eliminar" component={EliminarScreen} />
       <TopTab.Screen name="Editar" component={EditarScreen} />
     </TopTab.Navigator>

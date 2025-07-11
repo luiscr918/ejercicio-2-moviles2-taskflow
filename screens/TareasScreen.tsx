@@ -4,6 +4,7 @@ import { onValue, ref } from "firebase/database";
 import { auth, db } from "../firebase/Config";
 import { signOut } from "firebase/auth";
 import { CommonActions, useNavigation } from "@react-navigation/native";
+import { ListaTareas } from "../components/ListaTareas";
 interface User {
   id?: string;
   email: string;
@@ -46,18 +47,10 @@ export const TareasScreen = () => {
       <Text style={styles.title}>Tareas del estudiante</Text>
       <FlatList
         data={arreglo}
-        renderItem={({ item }) => (
-          <View style={styles.taskItem}>
-            <Text style={styles.taskTitle}>{item.title}</Text>
-            <Text>Completada: {item.completed ? "Sí" : "No"}</Text>
-            <Text>Fecha: {item.createdAt}</Text>
-          </View>
-        )}
+        renderItem={({ item }) => <ListaTareas {...item} />}
       />
 
-      <Button 
-      onPress={cerrarSesion}
-      title="Cerrar Sesion" color={"red"} />
+      <Button onPress={cerrarSesion} title="Cerrar Sesion" color={"red"} />
     </View>
   );
 };
@@ -74,15 +67,5 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 16,
     textAlign: "center",
-  },
-  taskItem: {
-    backgroundColor: "#f2f2f2",
-    padding: 16,
-    borderRadius: 8,
-    marginBottom: 12,
-  },
-  taskTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
   },
 });
